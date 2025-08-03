@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "DTM",
+  "version": "1.0",
+  "description": "A Chrome extension using Vite + React",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.jpg"
+  },
+  "permissions": [],
+  "icons": {
+    "16": "icon.jpg"
+  }
+}

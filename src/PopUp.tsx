@@ -6,7 +6,7 @@ function Popup() {
     console.log('hello there')
   }, [])
   return (
-    <div>
+    <div className='text-red-400 bg-green-300'>
       hello from this extension
 
     </div>

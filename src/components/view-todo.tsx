@@ -1,16 +1,15 @@
-import { useState } from "react"
 import type { Todo } from "../lib/types"
+import TodoCard from "./todo-card"
 
 
-export default function ViewTodo() {
-  const [todo, setTodo] = useState<Todo[]>([
-    { id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
-  ])
+export default function ViewTodo({ todo }: {
+  todo: Todo[]
+}) {
   return <>
     <div>
       {todo.map((x, index) => {
         return <div key={index}>
-          {x.title}
+          <TodoCard todo={x} />
         </div>
       })}
     </div>

@@ -1,6 +1,7 @@
 import './App.css'
 import { useEffect } from 'react'
 import Wrapper from './components/wrapper';
+import Header from './components/header';
 
 function Popup() {
   useEffect(() => {
@@ -8,9 +9,7 @@ function Popup() {
   }, [])
   return (
     <Wrapper>
-      <div className='text-red-400 bg-green-300'>
-        hello from this extension
-      </div>
+      <Header />
     </Wrapper>
   );
 }

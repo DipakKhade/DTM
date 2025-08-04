@@ -13,7 +13,7 @@ export default function Header() {
   return <>
     <header>
       <div className="text-xl font-semibold flex item-center justify-center">
-        <h1 className="">
+        <h1>
           Todo's
         </h1>
       </div>

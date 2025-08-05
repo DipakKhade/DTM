@@ -1,9 +1,8 @@
+import { useContext } from "react"
+import { TabsContext } from "../context/tabs"
 
-const tabs = [
-  { title: 'Completed', action: () => { console.log('complted action') } },
-  { title: 'Add', action: () => { console.log('add action') } },
-]
 export default function Tabs() {
+  const tabs = useContext(TabsContext)
   return <>
     <div className="w-full h-12 bg-[rgba(0, 0, 0, 0.87)] text-[#a5a5a5] fixed bottom-0 border border-top border-slate-700">
       <div className="flex item-center justify-around">

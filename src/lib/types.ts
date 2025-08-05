@@ -6,3 +6,8 @@ export interface Todo {
   completed: boolean,
   date: Date,
 }
+
+export interface Tab {
+  title: string,
+  action: () => void
+}

@@ -6,19 +6,25 @@ import ViewTodo from './components/view-todo';
 import AddTodo from './components/add-todo';
 import { TodoContext } from './context/todo-context';
 import Tabs from './components/tabs';
+import { TabsContext } from './context/tabs';
 function Popup() {
   const [mode, _setMode] = useState<'Add' | 'View'>('View')
   return (
-    <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
+    <TabsContext value={[
+      { title: 'Completed', action: () => { console.log('complted action') } },
+      { title: 'Add', action: () => { console.log('add action') } },
     ]}>
-      <Wrapper>
-        <>
-          <Header />
-          {mode === 'View' ? <ViewTodo /> : <AddTodo />}
-          <Tabs />
-        </>
-      </Wrapper>
-    </TodoContext>
+      <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
+      ]}>
+        <Wrapper>
+          <>
+            <Header />
+            {mode === 'View' ? <ViewTodo /> : <AddTodo />}
+            <Tabs />
+          </>
+        </Wrapper>
+      </TodoContext>
+    </TabsContext>
   );
 }
 export default Popup;

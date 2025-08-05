@@ -14,13 +14,13 @@ export default function TodoCard({ todo }: {
         <p>{todo.desc}</p>
       </div>
       <div className="flex space-x-4 text-2xl">
-        <VscCheck onClick={() => {
+        <VscCheck className="cursor-pointer" onClick={() => {
           console.log('todos --', todos)
           console.log('1 todo --', todo)
           todos.filter(x => x.id == todo.id)[0]['completed'] = true
           console.log('afet todo', todos)
         }} />
-        <VscTrash onClick={() => {
+        <VscTrash className="cursor-pointer" onClick={() => {
           console.log('control is here', todo)
           todos.filter(x => x.id !== todo.id)
         }} />

@@ -5,6 +5,7 @@ import Header from './components/header';
 import ViewTodo from './components/view-todo';
 import AddTodo from './components/add-todo';
 import { TodoContext } from './context/todo-context';
+import Tabs from './components/tabs';
 function Popup() {
   const [mode, _setMode] = useState<'Add' | 'View'>('View')
   return (
@@ -14,6 +15,7 @@ function Popup() {
         <>
           <Header />
           {mode === 'View' ? <ViewTodo /> : <AddTodo />}
+          <Tabs />
         </>
       </Wrapper>
     </TodoContext>

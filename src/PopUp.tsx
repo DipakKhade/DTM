@@ -11,8 +11,8 @@ function Popup() {
   const [mode, _setMode] = useState<'Add' | 'View'>('View')
   return (
     <TabsContext value={[
-      { title: 'Completed', action: () => { console.log('complted action') } },
-      { title: 'Add', action: () => { console.log('add action') } },
+      { title: 'Completed', action: () => { console.log('complted action') }, isActive: false },
+      { title: 'Add', action: () => { console.log('add action') }, isActive: false },
     ]}>
       <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
       ]}>
@@ -24,7 +24,7 @@ function Popup() {
           </>
         </Wrapper>
       </TodoContext>
-    </TabsContext>
+    </TabsContext >
   );
 }
 export default Popup;

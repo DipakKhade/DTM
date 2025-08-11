@@ -9,5 +9,6 @@ export interface Todo {
 
 export interface Tab {
   title: string,
-  action: () => void
+  action: () => void,
+  isActive: boolean
 }

@@ -22,17 +22,13 @@ function Popup() {
           <>
             <Header />
             {
-
-              tabs.find(x => x.title === 'Completed')[0]['isActive'] === true && <div>asd</div>
-
+              tabs.find(x => x.title === 'Completed')['isActive'] === true && <div>asd</div>
             }
             {
-              tabs.find(x => x.title === 'Add')[0]['isActive'] === true && <AddTodo />
-
+              tabs.find(x => x.title === 'Add')['isActive'] === true && <AddTodo />
             }
             {
-
-              tabs.find(x => x.title === 'Incomplete')[0]['isActive'] === true && <ViewTodo />
+              tabs.find(x => x.title === 'Incomplete')['isActive'] === true && <ViewTodo />
             }
             <Tabs />
           </>

@@ -1,5 +1,5 @@
 import './App.css'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import Wrapper from './components/wrapper';
 import Header from './components/header';
 import ViewTodo from './components/view-todo';
@@ -8,13 +8,13 @@ import { TodoContext } from './context/todo-context';
 import Tabs from './components/tabs';
 import { TabsContext } from './context/tabs';
 function Popup() {
-  const [mode, _setMode] = useState<'Add' | 'View'>('View')
   const tabs = useContext(TabsContext)
+  console.log('tabs.find(x => x.title === Add)?.isActive ', tabs)
   return (
     <TabsContext value={[
       { title: 'Completed', action: () => { console.log('complted action') }, isActive: false },
-      { title: 'Add', action: () => { console.log('add action') }, isActive: false },
-      { title: 'Incomplete', action: () => { console.log('Incomplete action') }, isActive: true },
+      { title: 'Add', action: () => { console.log('add action') }, isActive: true },
+      { title: 'Incomplete', action: () => { console.log('Incomplete action') }, isActive: false },
     ]}>
       <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
       ]}>

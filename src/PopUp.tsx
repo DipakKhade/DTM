@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Wrapper from './components/wrapper';
 import Header from './components/header';
 import ViewTodo from './components/view-todo';
@@ -9,6 +9,7 @@ import Tabs from './components/tabs';
 import { TabsContext } from './context/tabs';
 function Popup() {
   const [mode, _setMode] = useState<'Add' | 'View'>('View')
+  const tabs = useContext(TabsContext)
   return (
     <TabsContext value={[
       { title: 'Completed', action: () => { console.log('complted action') }, isActive: false },

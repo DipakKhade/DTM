@@ -6,14 +6,14 @@ export default function AddTodo() {
   const [desc, SetDesc] = useState<string>('')
   const todosList = useContext(TodoContext);
 
-  return <>
-    <div>
-      <input type="text" placeholder="Enter Title" onChange={(e) => SetTodo(e.target.value)} />
-      <input type="text" placeholder="Enter Description" onChange={(e) => SetDesc(e.target.value)} />
+  return <div className="mt-12">
+    <div className="flex flex-col m-2">
+      <input className="p-2" type="text" placeholder="Enter Title" onChange={(e) => SetTodo(e.target.value)} />
+      <input className="mt-3 p-2" type="text" placeholder="Enter Description" onChange={(e) => SetDesc(e.target.value)} />
     </div>
 
-    <div>
-      <button onClick={() => {
+    <div className="flex w-full item-center justify-center">
+      <button className="px-3 cursor-pointer border border-slate-900" onClick={() => {
         todosList.push({
           id: todosList[todosList.length - 1]['id'] + 1,
           completed: false,
@@ -23,5 +23,5 @@ export default function AddTodo() {
         })
       }}>Add</button>
     </div>
-  </>
+  </div>
 }

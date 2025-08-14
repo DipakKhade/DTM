@@ -13,13 +13,14 @@ function Popup() {
   return (
     <TabsContext value={[
       { title: 'Completed', action: () => { console.log('complted action') }, isActive: false },
-      { title: 'Add', action: () => { console.log('add action') }, isActive: true },
-      { title: 'Incomplete', action: () => { console.log('Incomplete action') }, isActive: false },
+      { title: 'Add', action: () => { console.log('add action') }, isActive: false },
+      { title: 'Incomplete', action: () => { console.log('Incomplete action') }, isActive: true },
     ]}>
       <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
       ]}>
         <Wrapper>
           <>
+            {JSON.stringify(tabs)}
             <Header />
             {
               tabs.find(x => x.title === 'Completed')?.isActive === true && <div>asd</div>

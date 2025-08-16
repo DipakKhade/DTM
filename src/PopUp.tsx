@@ -20,7 +20,6 @@ function Popup() {
       ]}>
         <Wrapper>
           <>
-            {JSON.stringify(tabs)}
             <Header />
             {
               tabs.find(x => x.title === 'Completed')?.isActive === true && <div>asd</div>

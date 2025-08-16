@@ -1,40 +1,39 @@
 import './App.css'
-import { useContext } from 'react'
+import { useState } from 'react'
 import Wrapper from './components/wrapper';
 import Header from './components/header';
-import ViewTodo from './components/view-todo';
-import AddTodo from './components/add-todo';
 import { TodoContext } from './context/todo-context';
-import Tabs from './components/tabs';
-import { TabsContext } from './context/tabs';
+import { MdAssignmentAdd } from "react-icons/md";
+import { TiTick } from "react-icons/ti";
 function Popup() {
-  const tabs = useContext(TabsContext)
-  console.log('tabs.find(x => x.title === Add)?.isActive ', tabs)
+  const [_tab, SetTab] = useState<'Add' | 'ViewCompleted' | 'ViewIncomplted'>('ViewIncomplted');
+
   return (
-    <TabsContext value={[
-      { title: 'Completed', action: () => { console.log('complted action') }, isActive: false },
-      { title: 'Add', action: () => { console.log('add action') }, isActive: false },
-      { title: 'Incomplete', action: () => { console.log('Incomplete action') }, isActive: true },
+    <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
     ]}>
-      <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
-      ]}>
-        <Wrapper>
-          <>
-            <Header />
-            {
-              tabs.find(x => x.title === 'Completed')?.isActive === true && <div>asd</div>
-            }
-            {
-              tabs.find(x => x.title === 'Add')?.isActive === true && <AddTodo />
-            }
-            {
-              tabs.find(x => x.title === 'Incomplete')?.isActive === true && <ViewTodo />
-            }
-            <Tabs />
-          </>
-        </Wrapper>
-      </TodoContext>
-    </TabsContext >
+      <Wrapper>
+        <>
+          <Header />
+
+          <div className="w-full h-12 bg-[rgba(0, 0, 0, 0.87)] text-[#a5a5a5] fixed bottom-0 border border-top border-slate-700">
+            <div className="flex item-center justify-around">
+
+              <button className="cursor-pointer text-2xl item-center justify-between bold space-x-4 rounded-sm" onClick={() => SetTab('Add')}>
+                <MdAssignmentAdd />
+              </button>
+              <button className="cursor-pointer text-2xl item-center justify-between bold space-x-4 rounded-sm" onClick={() => SetTab('Add')}>
+                < TiTick />
+              </button>
+              <button className="cursor-pointer text-2xl item-center justify-between bold space-x-4 rounded-sm" onClick={() => SetTab('Add')}>
+                <MdAssignmentAdd />
+              </button>
+
+            </div>
+          </div>
+
+        </>
+      </Wrapper>
+    </TodoContext>
   );
 }
 export default Popup;

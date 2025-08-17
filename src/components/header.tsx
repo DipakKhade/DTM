@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 
-export default function Header() {
+export default function Header({ onClick }: {
+  onClick: () => void
+}) {
   const [date, _setDate] = useState(new Date().toString().split(' ').reduce((acc, x, index) => {
     if (index < 4) {
       return acc + x + ' '
@@ -11,7 +13,7 @@ export default function Header() {
   }, ''))
 
   return <>
-    <header>
+    <header onClick={() => onClick()}>
       <div className="text-xl font-semibold flex item-center justify-center">
         <h1>
           Todo's

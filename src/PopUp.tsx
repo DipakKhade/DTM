@@ -15,7 +15,7 @@ function Popup() {
     ]}>
       <Wrapper>
         <>
-          <Header />
+          <Header onClick={() => SetTab('ViewIncomplted')} />
 
           {tab === 'ViewIncomplted' && <ViewTodo />}
           {tab === 'Add' && <AddTodo />}

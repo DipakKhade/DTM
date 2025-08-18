@@ -8,8 +8,8 @@ export default function AddTodo() {
 
   return <div className="mt-12">
     <div className="flex flex-col m-2">
-      <input className="p-2" type="text" placeholder="Enter Title" onChange={(e) => SetTodo(e.target.value)} />
-      <input className="mt-3 p-2" type="text" placeholder="Enter Description" onChange={(e) => SetDesc(e.target.value)} />
+      <input className="p-2" type="text" value={todo} placeholder="Enter Title" onChange={(e) => SetTodo(e.target.value)} />
+      <input className="mt-3 p-2" type="text" value={desc} placeholder="Enter Description" onChange={(e) => SetDesc(e.target.value)} />
     </div>
 
     <div className="flex w-full item-center justify-center">
@@ -20,8 +20,13 @@ export default function AddTodo() {
           date: new Date(),
           desc,
           title: todo
-        })
-      }}>Add</button>
+        }
+        )
+        SetTodo('');
+        SetDesc('');
+        console.log('todo uodated---', todosList)
+      }
+      }>Add</button>
     </div>
-  </div>
+  </div >
 }

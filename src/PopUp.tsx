@@ -9,16 +9,15 @@ import AddTodo from './components/add-todo';
 import ViewTodo from './components/view-todo';
 function Popup() {
   const [tab, SetTab] = useState<'Add' | 'ViewCompleted' | 'ViewIncomplted'>('ViewIncomplted');
-
+  const [todos, SetTodos] = useState([])
   return (
-    <TodoContext value={[{ id: 1, completed: false, date: new Date, desc: 'this is a todo desc', title: 'title is this' }
-    ]}>
+    <TodoContext.Provider value={todos}>
       <Wrapper>
         <>
           <Header onClick={() => SetTab('ViewIncomplted')} />
 
           {tab === 'ViewIncomplted' && <ViewTodo />}
-          {tab === 'Add' && <AddTodo />}
+          {tab === 'Add' && <AddTodo setTodos={SetTodos} />}
           {tab === 'ViewCompleted' && <div>asd</div>}
 
           <div>
@@ -37,7 +36,7 @@ function Popup() {
           </div>
         </>
       </Wrapper>
-    </TodoContext>
+    </TodoContext.Provider>
   );
 }
 export default Popup;

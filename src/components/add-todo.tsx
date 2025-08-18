@@ -1,7 +1,9 @@
 import { useContext, useState } from "react"
 import { TodoContext } from "../context/todo-context";
 
-export default function AddTodo() {
+export default function AddTodo({ setTodos }: {
+  setTodos: (args: any) => void
+}) {
   const [todo, SetTodo] = useState<string>('');
   const [desc, SetDesc] = useState<string>('')
   const todosList = useContext(TodoContext);
@@ -14,6 +16,19 @@ export default function AddTodo() {
 
     <div className="flex w-full item-center justify-center">
       <button className="px-3 cursor-pointer border border-slate-900" onClick={() => {
+        setTodos((prev: any) => {
+          return [
+            ...prev,
+            {
+              id: todosList[todosList.length - 1]['id'] + 1,
+              completed: false,
+              date: new Date(),
+              desc,
+              title: todo
+            }
+
+          ]
+        })
         todosList.push({
           id: todosList[todosList.length - 1]['id'] + 1,
           completed: false,

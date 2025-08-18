@@ -20,8 +20,7 @@ export default function AddTodo({ setTodos }: {
           return [
             ...prev,
             {
-              id: todosList[todosList.length - 1]['id'] + 1,
-              completed: false,
+              id: 0, completed: false,
               date: new Date(),
               desc,
               title: todo
@@ -29,14 +28,6 @@ export default function AddTodo({ setTodos }: {
 
           ]
         })
-        todosList.push({
-          id: todosList[todosList.length - 1]['id'] + 1,
-          completed: false,
-          date: new Date(),
-          desc,
-          title: todo
-        }
-        )
         SetTodo('');
         SetDesc('');
         console.log('todo uodated---', todosList)

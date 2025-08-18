@@ -23,6 +23,7 @@ export default function TodoCard({ todo }: {
         <VscTrash className="cursor-pointer" onClick={() => {
           console.log('control is here', todo)
           todos.filter(x => x.id !== todo.id)
+          console.log('todos are heres--', todos)
         }} />
       </div>
     </div>

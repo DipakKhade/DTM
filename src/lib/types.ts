@@ -7,8 +7,3 @@ export interface Todo {
   date: Date,
 }
 
-export interface Tab {
-  title: string,
-  action: () => void,
-  isActive: boolean
-}
